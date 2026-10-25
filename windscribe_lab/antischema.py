@@ -44,6 +44,12 @@ class AntiCensorship:
         if self.protocol_tweaks == "Enabled" and not self.amnezia:
             raise SettingsError("Choose an Amnezia configuration when protocol tweaks are Enabled.")
 
+    def matches(self, actual: AntiCensorship) -> bool:
+        """The saved manual preset only controls the connection in Enabled mode."""
+        return (self.protocol_tweaks == actual.protocol_tweaks
+                and self.routing == actual.routing and self.large_tls == actual.large_tls
+                and (self.protocol_tweaks != "Enabled" or self.amnezia == actual.amnezia))
+
     @property
     def label(self):
         tweaks = self.amnezia if self.protocol_tweaks == "Enabled" else self.protocol_tweaks

@@ -11,7 +11,7 @@ Windscribe Lab uses your installed official Windscribe app. Sign in through Wind
 ## Install
 
 1. Install the official [Windscribe desktop app](https://windscribe.com/download/) and sign in.
-2. Download `WindscribeLab-1.5.1-windows-x64.zip` from the [latest release](https://github.com/tnt1576-a11y/windscribe-lab/releases/latest).
+2. Download `WindscribeLab-1.5.2-windows-x64.zip` from the [latest release](https://github.com/tnt1576-a11y/windscribe-lab/releases/latest).
 3. Extract the entire ZIP and open `WindscribeLab.exe`.
 
 This is a portable Windows x64 app. No Python installation is needed. Keep the `_internal` folder beside the executable. The Windows executable is unsigned.

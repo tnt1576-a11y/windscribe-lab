@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import ctypes
 from ctypes import wintypes
-from dataclasses import asdict
+from dataclasses import asdict, replace
 import json
 import os
 from pathlib import Path
@@ -301,13 +301,16 @@ class SettingsController:
         allowed = (expected, original, reviewed_current)
         if reviewed_current is not None and doc.current != reviewed_current:
             raise SettingsError("Settings changed after the recovery review. Review the new values before proceeding.")
-        if doc.current not in allowed:
+        if not any(value is not None and value.matches(doc.current) for value in allowed):
             raise SettingsError("Anti-censorship settings changed outside this test. Refusing to overwrite them; recovery backup retained.")
         if not restoring and target.protocol_tweaks == "Enabled" and target.amnezia not in self.presets:
             raise SettingsError("The selected Amnezia configuration is not available in the installed client.")
-        if doc.current == target:
-            return "registry_readback_existing"
         target.validate()
+        if doc.current == target or (not restoring and target.matches(doc.current)):
+            self.journal["expected"] = asdict(doc.current)
+            self.journal["phase"] = "restored" if restoring else "applied"
+            self._save()
+            return "registry_readback_existing"
         self.client.disconnect()
         self.logger("Restarting the selected Windscribe frontend to load anti-censorship settings.")
         self.host.stop()
@@ -315,21 +318,26 @@ class SettingsController:
             # Graceful exit can save other preferences. Parse again and retain all of them.
             value = self.registry.read()
             doc = EngineDocument.from_registry(value)
-            if doc.current not in allowed:
+            if not any(value is not None and value.matches(doc.current) for value in allowed):
                 raise SettingsError("Settings changed while Windscribe was closing; no overwrite performed.")
             if self.host.pids():
                 raise SettingsError("Windscribe restarted before settings could be written. Retry.")
-            plain = doc.patch(target)
-            self.journal["expected"] = asdict(target)
+            # Auto/Disabled ignore the manual preset. Keep its saved value;
+            # clearing it makes Windscribe replace it on GUI startup.
+            written = target if restoring or target.protocol_tweaks == "Enabled" else replace(target, amnezia=doc.current.amnezia)
+            plain = doc.patch(written)
+            self.journal["expected"] = asdict(written)
             self.journal["phase"] = "restore_pending" if restoring else "write_pending"
             self._save()  # Journal the planned value before the atomic registry write.
             self.registry.write(encrypt(plain), expected=value)
-            if EngineDocument.from_registry(self.registry.read()).current != target:
+            if EngineDocument.from_registry(self.registry.read()).current != written:
                 raise SettingsError("Settings readback did not match the requested combination.")
         finally:
             self._ready()  # Relaunch even if the write failed.
-        if EngineDocument.from_registry(self.registry.read()).current != target:
+        actual = EngineDocument.from_registry(self.registry.read()).current
+        if not target.matches(actual):
             raise SettingsError("Windscribe did not retain the requested settings after restart.")
+        self.journal["expected"] = asdict(actual)
         self.journal["phase"] = "restored" if restoring else "applied"
         self._save()
         return "registry_readback_after_restart"
@@ -340,11 +348,11 @@ class SettingsController:
         return self._replace(target)
 
     def verify(self, target):
-        if EngineDocument.from_registry(self.registry.read()).current != target:
+        if not target.matches(EngineDocument.from_registry(self.registry.read()).current):
             raise SettingsError("Anti-censorship settings changed during measurement. Result was not accepted.")
 
     def clear_recovery(self):
-        if self.journal and asdict(EngineDocument.from_registry(self.registry.read()).current) != self.journal["original"]:
+        if self.journal and not AntiCensorship(**self.journal["original"]).matches(EngineDocument.from_registry(self.registry.read()).current):
             raise SettingsError("Original settings have not been verified; recovery backup retained.")
         self.path.unlink(missing_ok=True)
         self.journal = None
@@ -354,7 +362,8 @@ class SettingsController:
             raise SettingsError("No active settings recovery backup was found.")
         current = EngineDocument.from_registry(self.registry.read()).current
         return {"original": self.journal["original"], "expected": self.journal["expected"],
-                "current": asdict(current), "conflict": asdict(current) not in (self.journal["original"], self.journal["expected"])}
+                "current": asdict(current), "conflict": not any(AntiCensorship(**self.journal[key]).matches(current)
+                                                                for key in ("original", "expected"))}
 
     def keep_current(self, reviewed_current: AntiCensorship):
         if not self._load():

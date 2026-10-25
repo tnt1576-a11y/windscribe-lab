@@ -1,5 +1,5 @@
 import base64
-from dataclasses import asdict
+from dataclasses import asdict, replace
 import json
 import struct
 
@@ -127,6 +127,7 @@ class FakeHost:
     def __init__(self):
         self.running, self.stops, self.starts = True, 0, 0
         self.on_stop = lambda: None
+        self.on_start = lambda: None
     def version(self):
         return (2, 24, 13)
     def pids(self):
@@ -138,6 +139,7 @@ class FakeHost:
     def start(self):
         self.starts += 1
         self.running = True
+        self.on_start()
 
 
 class FakeClient:
@@ -181,6 +183,157 @@ def test_apply_restart_verify_and_restore_transaction(tmp_path):
     ctrl.restore()
     assert EngineDocument.from_registry(registry.read()).current == original.current
     assert registry.writes == 2 and not ctrl.path.exists()
+
+
+@pytest.mark.parametrize("mode", ["Auto", "Disabled"])
+def test_inactive_manual_preset_is_preserved_and_does_not_block_testing(tmp_path, mode):
+    ctrl, registry, host, client = controller(tmp_path)
+    original = EngineDocument.from_registry(registry.read()).current
+    ctrl.begin({"state": "disconnected"})
+    target = AntiCensorship(mode, "", "Alternate", True)
+    ctrl.apply(target)
+    actual = EngineDocument.from_registry(registry.read()).current
+    assert actual == replace(target, amnezia=original.amnezia)
+    ctrl.verify(target)
+    assert ctrl.apply(target) == "registry_readback_existing"
+    assert host.starts == host.stops == registry.writes == 1
+    ctrl.restore()
+    assert EngineDocument.from_registry(registry.read()).current == original
+    assert not ctrl.path.exists()
+
+
+def normalize_preset_on_start(registry):
+    """Windscribe 2.24.13 replaces missing/stale saved presets on GUI startup."""
+    doc = EngineDocument.from_registry(registry.read())
+    if doc.current.amnezia not in KNOWN_PRESETS:
+        registry.value = encrypt(doc.patch(replace(doc.current, amnezia=KNOWN_PRESETS[0])))
+
+
+@pytest.mark.parametrize("mode", ["Auto", "Disabled"])
+@pytest.mark.parametrize("saved_preset", ["", "Old - Removed preset"])
+def test_startup_preset_normalization_allows_apply_verify_and_recovery(tmp_path, mode, saved_preset):
+    ctrl, registry, host, client = controller(tmp_path)
+    original = AntiCensorship(mode, saved_preset, "Auto", False)
+    registry.value = encrypt(fixture_stream(anti=original))
+    host.on_start = lambda: normalize_preset_on_start(registry)
+    ctrl.begin({"state": "disconnected"})
+    target = AntiCensorship(mode, "", "Alternate", True)
+    ctrl.apply(target)
+    actual = EngineDocument.from_registry(registry.read()).current
+    assert actual == replace(target, amnezia=KNOWN_PRESETS[0])
+    assert ctrl.journal["expected"] == asdict(actual)
+    ctrl.verify(target)
+    assert not ctrl.recovery_summary()["conflict"]
+    ctrl.restore()
+    assert EngineDocument.from_registry(registry.read()).current == replace(original, amnezia=KNOWN_PRESETS[0])
+    assert not ctrl.path.exists()
+
+
+def test_legacy_auto_failure_backup_can_restore_without_false_conflict(tmp_path):
+    ctrl, registry, host, client = controller(tmp_path)
+    original = EngineDocument.from_registry(registry.read()).current
+    ctrl.begin({"state": "disconnected"})
+    legacy_target = AntiCensorship("Auto", "", "Alternate", True)
+    ctrl.journal.update(expected=asdict(legacy_target), phase="write_pending")
+    ctrl._save()
+    registry.value = encrypt(fixture_stream(anti=replace(legacy_target, amnezia=KNOWN_PRESETS[0])))
+    recovered = SettingsController(client, tmp_path, registry=registry, host=host, protector=fake_protector)
+    assert not recovered.recovery_summary()["conflict"]
+    recovered.restore()
+    assert EngineDocument.from_registry(registry.read()).current == original
+    assert not recovered.path.exists()
+
+
+@pytest.mark.parametrize("change", [dict(protocol_tweaks="Disabled"), dict(routing="Regular"), dict(large_tls=False)])
+def test_auto_still_rejects_changes_to_active_settings(tmp_path, change):
+    ctrl, registry, host, client = controller(tmp_path)
+    ctrl.begin({})
+    target = AntiCensorship("Auto", "", "Alternate", True)
+    ctrl.apply(target)
+    actual = EngineDocument.from_registry(registry.read()).current
+    registry.value = encrypt(fixture_stream(anti=replace(actual, **change)))
+    with pytest.raises(SettingsError, match="changed during measurement"):
+        ctrl.verify(target)
+    assert ctrl.recovery_summary()["conflict"]
+    with pytest.raises(SettingsError, match="outside this test"):
+        ctrl.restore()
+    assert ctrl.path.exists()
+
+
+def test_enabled_still_rejects_startup_preset_changes(tmp_path):
+    ctrl, registry, host, client = controller(tmp_path)
+    ctrl.begin({})
+    target = AntiCensorship("Enabled", KNOWN_PRESETS[10], "Alternate", True)
+    def replace_preset():
+        doc = EngineDocument.from_registry(registry.read())
+        registry.value = encrypt(doc.patch(replace(doc.current, amnezia=KNOWN_PRESETS[0])))
+    host.on_start = replace_preset
+    with pytest.raises(SettingsError, match="did not retain"):
+        ctrl.apply(target)
+    with pytest.raises(SettingsError, match="changed during measurement"):
+        ctrl.verify(target)
+    assert ctrl.path.exists() and ctrl.recovery_summary()["conflict"]
+
+
+@pytest.mark.parametrize("change", [dict(protocol_tweaks="Disabled"), dict(routing="Regular"), dict(large_tls=False)])
+def test_auto_still_rejects_active_settings_changed_on_startup(tmp_path, change):
+    ctrl, registry, host, client = controller(tmp_path)
+    ctrl.begin({})
+    def change_setting():
+        doc = EngineDocument.from_registry(registry.read())
+        registry.value = encrypt(doc.patch(replace(doc.current, **change)))
+    host.on_start = change_setting
+    with pytest.raises(SettingsError, match="did not retain"):
+        ctrl.apply(AntiCensorship("Auto", "", "Alternate", True))
+    assert ctrl.path.exists()
+
+
+def test_recovery_review_still_detects_an_inactive_preset_changed_after_review(tmp_path):
+    ctrl, registry, host, client = controller(tmp_path)
+    registry.value = encrypt(fixture_stream(anti=AntiCensorship("Auto", KNOWN_PRESETS[0], "Auto", False)))
+    ctrl.begin({})
+    reviewed = EngineDocument.from_registry(registry.read()).current
+    registry.value = encrypt(fixture_stream(anti=replace(reviewed, amnezia=KNOWN_PRESETS[1])))
+    with pytest.raises(SettingsError, match="after the recovery review"):
+        ctrl.keep_current(reviewed)
+    with pytest.raises(SettingsError, match="after the recovery review"):
+        ctrl.restore(reviewed_current=reviewed)
+    assert ctrl.path.exists() and registry.writes == host.stops == 0
+
+
+def test_auto_run_reaches_measurement_saves_results_and_restores(tmp_path, qapp):
+    from unittest.mock import patch
+    from windscribe_lab.engine import Runner
+    from windscribe_lab.models import Result
+    from windscribe_lab.storage import Store
+
+    registry, host = FakeRegistry(fixture_stream()), FakeHost()
+    original = EngineDocument.from_registry(registry.read()).current
+    host.on_start = lambda: normalize_preset_on_start(registry)
+    class RunnerClient(FakeClient):
+        def __init__(self, path, cancel=None):
+            super().__init__()
+        def ports(self):
+            return {"tcp": [443, 80]}
+        def disconnect(self, timeout=16):
+            super().disconnect()
+    def settings(client, directory, logger):
+        return SettingsController(client, directory, logger, registry=registry, host=host, protector=fake_protector)
+    profiles = [asdict(AntiCensorship("Auto", "", "Alternate", True))]
+    config = RunConfig(anti_profiles=profiles)
+    store = Store(tmp_path)
+    plan = make_plan([Location("1", "Germany", "DE", "Frankfurt", "Castle")], {"tcp": [443, 80]}, 1, profiles)
+    run = store.create_run(config, plan, "live")
+    finished = []
+    runner = Runner(store, run)
+    runner.finished_run.connect(finished.append)
+    with patch("windscribe_lab.engine.Client", RunnerClient), patch("windscribe_lab.engine.SettingsController", settings), patch.object(Runner, "measure", return_value=Result("verified", https_ok=2, tunnel_verified=True)) as measure:
+        runner.run()
+    assert store.run(run)["state"] == "complete", finished
+    assert measure.call_count == 2
+    assert all(result and result.applied_anti_censorship == profiles[0] for _, _, result in store.tasks(run))
+    assert EngineDocument.from_registry(registry.read()).current == original
+    assert not (tmp_path / "settings-recovery.dpapi").exists()
 
 
 def test_shutdown_saves_and_external_unrelated_edits_are_preserved(tmp_path):
