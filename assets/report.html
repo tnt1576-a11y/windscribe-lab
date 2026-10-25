@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-@@NONCE@@'; style-src 'nonce-@@NONCE@@'; connect-src 'none'; img-src data:; base-uri 'none'; form-action 'none'">
+<title>@@TITLE@@ · Windscribe Lab report</title>
+<style nonce="@@NONCE@@">
+:root{color-scheme:dark;--bg:#101318;--panel:#191e26;--input:#12161d;--hover:#222a38;--border:#303846;--text:#edf1f9;--muted:#9faec4;--accent:#a8bcff;--accent-bg:#283653;--green:#91e0c1;--green-bg:#1c3830;--amber:#edcb8b;--amber-bg:#3b3222;--red:#f5a6ae;--red-bg:#3c252d;--shadow:0 8px 32px #00000016}
+:root[data-theme=light]{color-scheme:light;--bg:#f3f5f9;--panel:#fff;--input:#f7f9fc;--hover:#edf2fb;--border:#dce2ec;--text:#1b283e;--muted:#586982;--accent:#3c59a5;--accent-bg:#e8edff;--green:#126d51;--green-bg:#e2f4ec;--amber:#80570f;--amber-bg:#fff2d8;--red:#a33e4c;--red-bg:#fde9ed;--shadow:0 8px 32px #27375706}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 "Segoe UI",system-ui,sans-serif}button,input,select{font:inherit}button,select{cursor:pointer}button{color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:7px;padding:8px 13px}button:hover{background:var(--hover)}button:disabled{cursor:default;opacity:.4}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}button.primary{color:var(--accent);background:var(--accent-bg);border-color:transparent}.shell{max-width:1560px;margin:0 auto;padding:32px 36px 24px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px}.brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.1px}.brand svg{width:32px;height:32px;color:var(--accent)}.brand span{font-weight:400;color:var(--muted);border-left:1px solid var(--border);padding-left:12px;margin-left:2px}.actions{display:flex;gap:8px}.intro{display:flex;gap:24px;justify-content:space-between;align-items:flex-start;margin-bottom:24px}h1{font-size:32px;letter-spacing:-.7px;margin:0 0 4px;font-weight:650;overflow-wrap:anywhere}.subtitle,.metadata,.muted{color:var(--muted)}.subtitle{font-size:15px}.metadata{font-size:12px;display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px}.badges{display:flex;flex-wrap:wrap;gap:8px;padding-top:6px}.badge,.status{display:inline-block;border-radius:5px;padding:4px 8px;font-size:12px;font-weight:550;white-space:nowrap}.badge{background:var(--accent-bg);color:var(--accent)}.badge.demo{background:var(--amber-bg);color:var(--amber)}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:24px}.stat{border:1px solid var(--border);border-radius:10px;padding:18px 20px;background:var(--panel)}.stat .key{color:var(--muted);font-size:12px}.stat .value{font-size:30px;line-height:1.4;font-weight:620;font-variant-numeric:tabular-nums;margin:4px 0}.stat .value span{font-size:15px;font-weight:400;color:var(--muted)}.stat .hint{color:var(--muted);font-size:12px}.stat:first-child .value{color:var(--green)}.results{border:1px solid var(--border);border-radius:12px;background:var(--panel);box-shadow:var(--shadow);overflow:hidden}.section-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px 10px}h2{font-size:16px;margin:0;font-weight:600}.section-head .muted{font-size:12px}.filters{display:grid;grid-template-columns:minmax(220px,2fr) repeat(3,minmax(130px,1fr));gap:10px;padding:8px 20px 18px}.field{display:flex;flex-direction:column;gap:5px}.field span{color:var(--muted);font-size:11px}input,select{background:var(--input);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:9px 10px;min-width:0;width:100%}input::placeholder{color:var(--muted)}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}thead{background:var(--input)}th{font-weight:500;color:var(--muted);font-size:12px;padding:9px 14px;border-block:1px solid var(--border)}th:first-child,td:first-child{padding-left:20px}th:last-child,td:last-child{padding-right:20px}th button{background:none;border:0;color:inherit;padding:2px 0;border-radius:2px;font-size:12px}th button:hover{color:var(--text);background:none}th[aria-sort=ascending] button::after{content:' ↑';color:var(--accent)}th[aria-sort=descending] button::after{content:' ↓';color:var(--accent)}td{padding:14px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top;font-variant-numeric:tabular-nums}tbody tr:hover{background:var(--hover)}.server{font-weight:550}.secondary{font-size:11px;color:var(--muted);margin-top:3px}.settings{max-width:260px;white-space:normal;min-width:160px}.status.verified{color:var(--green);background:var(--green-bg)}.status.https_only,.status.partial{color:var(--amber);background:var(--amber-bg)}.status.failure{color:var(--red);background:var(--red-bg)}.status.pending{color:var(--muted);background:var(--input)}td.number,th.number{text-align:right}.empty{padding:48px 24px;text-align:center;color:var(--muted)}.empty strong{color:var(--text);display:block;margin-bottom:4px;font-weight:500}.pager{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px;color:var(--muted);font-size:12px}.page-actions{display:flex;align-items:center;gap:10px}.page-actions button{font-size:12px;padding:6px 10px}.legend{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:12px;color:var(--muted);margin-top:14px}.legend b{font-weight:550;color:var(--text)}details{white-space:normal;min-width:95px}summary{cursor:pointer;color:var(--accent);font-size:12px}details[open]{width:270px}dl{margin:10px 0 0;font-size:12px;overflow-wrap:anywhere}dt{color:var(--muted);margin-top:8px}dd{margin:2px 0 0}footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:11px;margin-top:28px}.notes{border-top:1px solid var(--border);padding-top:20px;margin-top:22px}.notes p{white-space:pre-wrap;color:var(--muted);overflow-wrap:anywhere;margin-bottom:0}.notes summary{font-size:13px}.notes[open]{width:auto}.noscript{padding:20px;border:1px solid var(--border);border-radius:10px;color:var(--amber);margin-bottom:20px}
+@media(max-width:850px){.shell{padding:20px 16px}.top{margin-bottom:24px}.brand span{display:none}.intro{flex-direction:column;gap:8px}h1{font-size:27px}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat{padding:14px 16px}.filters{grid-template-columns:repeat(2,minmax(0,1fr));padding:8px 14px 14px}.section-head{padding-inline:14px}.pager{padding-inline:14px}.page-actions{gap:7px}}
+@media print{html{color-scheme:light}body{background:white;color:#18273e;font-size:10px;--text:#18273e;--muted:#586982;--panel:#fff;--border:#ddd;--input:#f5f7fa;--green:#126d51;--green-bg:#e2f4ec;--amber:#80570f;--amber-bg:#fff2d8;--red:#a33e4c;--red-bg:#fde9ed;--accent:#3c59a5}.shell{padding:0;max-width:none}.actions,.filters,.pager,.section-head button{display:none}.top{margin-bottom:16px}.stats{margin-bottom:16px;gap:8px}.stat{padding:8px 12px}.stat .value{font-size:22px}.results{box-shadow:none;border-radius:0}.table-wrap{overflow:visible}td,th{padding:7px;font-size:10px}.secondary{font-size:9px}.status{font-size:9px;padding:2px 4px}td:last-child,th:last-child{display:none}.settings{min-width:100px;max-width:180px}tr{break-inside:avoid}thead{display:table-header-group}h1{font-size:24px}.badge{font-size:10px}.notes{display:none}footer{margin-top:14px}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="top">
+    <div class="brand"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor" opacity=".15"/><path d="M5 17h5l3-9 5 17 3-10h6" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>Windscribe Lab <span>Connection report</span></div>
+    <div class="actions"><button id="theme" type="button">Light theme</button><button id="print" type="button">Print / PDF</button></div>
+  </header>
+  <noscript><div class="noscript">Enable JavaScript to view and filter this offline report. No network access is required.</div></noscript>
+  <section class="intro" aria-label="Session">
+    <div><h1 id="network">@@TITLE@@</h1><div class="subtitle" id="profile"></div><div class="metadata"><span id="created"></span><span id="scope-description"></span></div></div>
+    <div class="badges"><span class="badge" id="mode"></span><span class="badge" id="scope"></span></div>
+  </section>
+  <section class="stats" aria-label="Report summary">
+    <div class="stat"><div class="key">Working routes</div><div class="value" id="working">—</div><div class="hint">Both HTTPS checks passed</div></div>
+    <div class="stat"><div class="key">Verified tunnels</div><div class="value" id="verified">—</div><div class="hint">HTTPS matches the reported VPN IP</div></div>
+    <div class="stat"><div class="key">Fastest latency</div><div class="value" id="latency">—</div><div class="hint">Among working routes</div></div>
+    <div class="stat"><div class="key">Servers in report</div><div class="value" id="servers">—</div><div class="hint" id="countries">—</div></div>
+  </section>
+  <section class="results" aria-label="Test results">
+    <div class="section-head"><h2>Results</h2><button class="primary" id="csv" type="button">Download filtered CSV</button></div>
+    <div class="filters">
+      <label class="field"><span>Search</span><input type="search" id="search" placeholder="Server, country or settings…" autocomplete="off"></label>
+      <label class="field"><span>Country</span><select id="country"><option value="">All countries</option></select></label>
+      <label class="field"><span>Protocol</span><select id="protocol"><option value="">All protocols</option></select></label>
+      <label class="field"><span>Result</span><select id="outcome"><option value="">All results</option><option value="working">Working</option><option value="verified">Verified only</option><option value="https_only">HTTPS only</option><option value="failed">Failures</option><option value="pending">Pending</option></select></label>
+    </div>
+    <div class="table-wrap"><table id="results-table"><thead><tr>
+      <th><button type="button" data-sort="server">Server</button></th><th><button type="button" data-sort="protocol">Protocol</button></th><th class="number"><button type="button" data-sort="port">Port</button></th><th>Anti-censorship</th><th><button type="button" data-sort="outcome">Result</button></th><th class="number"><button type="button" data-sort="latency_ms">Latency</button></th><th class="number"><button type="button" data-sort="loss_pct">Loss</button></th><th class="number"><button type="button" data-sort="connect_s">Connect</button></th><th class="number">HTTPS</th><th>Details</th>
+    </tr></thead><tbody id="rows"></tbody></table></div>
+    <div class="empty" id="empty" hidden><strong>No matching results</strong><span>Try another search or filter.</span></div>
+    <div class="pager"><span id="result-count" aria-live="polite"></span><div class="page-actions"><button id="previous" type="button">Previous</button><span id="page"></span><button id="next" type="button">Next</button></div></div>
+  </section>
+  <div class="legend"><span><b>HTTPS only:</b> web checks passed; VPN egress is unconfirmed.</span><span>ICMP can be blocked on a working route.</span></div>
+  <details class="notes" id="notes-box" hidden><summary>Session notes</summary><p id="notes"></p></details>
+  <footer><span id="footer-session"></span><span>Windscribe Lab @@VERSION@@ · Offline report · No external resources</span></footer>
+</main>
+<script type="application/json" id="report-data" nonce="@@NONCE@@">@@DATA@@</script>
+<script nonce="@@NONCE@@">
+'use strict';
+const report = JSON.parse(document.getElementById('report-data').textContent);
+const $ = id => document.getElementById(id);
+const working = row => ['verified','https_only'].includes(row.outcome);
+const protocols = {wireguard:'WireGuard',ikev2:'IKEv2',udp:'OpenVPN UDP',tcp:'OpenVPN TCP',stealth:'Stealth',wstunnel:'WStunnel'};
+const number = (value,unit='') => value == null ? '—' : Number(value).toLocaleString(undefined,{maximumFractionDigits:1}) + unit;
+const text = (tag,value,className='') => { const node=document.createElement(tag); node.textContent=value; if(className)node.className=className; return node; };
+const antiLabel = row => { let a=row.applied_anti_censorship; if(!a && row.requested_anti_censorship){try{a=JSON.parse(row.requested_anti_censorship);}catch{}} return a ? `${a.protocol_tweaks === 'Enabled' ? a.amnezia : a.protocol_tweaks} · ${a.routing} · TLS ${a.large_tls ? 'On':'Off'}` : 'As configured'; };
+const summary=report.summary;
+$('network').textContent=report.network;
+$('profile').textContent=report.profile;
+const date=new Date(report.created); $('created').textContent=Number.isNaN(date.valueOf()) ? report.created : date.toLocaleString(undefined,{dateStyle:'medium',timeStyle:'short'});
+$('scope-description').textContent=`${number(summary.exported)} exported · ${number(summary.completed)} of ${number(summary.planned)} tests completed`;
+$('scope').textContent=report.scope==='working' ? 'Working only' : 'All tests';
+$('mode').textContent=report.mode==='demo' ? 'Simulation — sample data' : 'Live test';
+if(report.mode==='demo')$('mode').classList.add('demo');
+$('working').textContent=number(summary.working); $('verified').textContent=number(summary.verified);
+$('latency').textContent=number(summary.best_latency_ms); if(summary.best_latency_ms!=null)$('latency').append(text('span',' ms'));
+$('servers').textContent=number(summary.servers);
+$('countries').textContent=`${new Set(report.results.map(row=>row.country)).size} countries`;
+$('footer-session').textContent=`Session ${report.session.slice(0,8)}`;
+if(report.notes){$('notes-box').hidden=false; $('notes').textContent=report.notes;}
+for(const [id,key] of [['country','country'],['protocol','protocol']]){
+  for(const value of [...new Set(report.results.map(row=>row[key]))].sort()){
+    const option=text('option',id==='protocol' ? protocols[value] || value : value); option.value=value; $(id).append(option);
+  }
+}
+// Search strings are computed once; only a page of rows is ever mounted.
+const rows=report.results.map(row=>({...row,_anti:antiLabel(row)}));
+for(const row of rows)row._search=[row.country,row.city,row.server,row.protocol,protocols[row.protocol],row.port,row._anti,report.labels[row.outcome] || row.outcome].join(' ').toLocaleLowerCase();
+let page=0, sortKey='quality', sortDirection=1;
+const pageSize=50;
+function compare(a,b){
+  if(sortKey==='quality'){
+    const rank=row=>row.outcome==='verified'?0:row.outcome==='https_only'?1:row.outcome==='pending'?3:2;
+    return rank(a)-rank(b) || (a.loss_pct??Infinity)-(b.loss_pct??Infinity) || (a.latency_ms??Infinity)-(b.latency_ms??Infinity) || a.server.localeCompare(b.server);
+  }
+  let left=a[sortKey], right=b[sortKey];
+  if(left==null)return right==null?0:1; if(right==null)return -1;
+  return sortDirection*(typeof left==='number' ? left-right : String(left).localeCompare(String(right)));
+}
+function filtered(){
+  const query=$('search').value.trim().toLocaleLowerCase(), country=$('country').value, protocol=$('protocol').value, outcome=$('outcome').value;
+  return rows.filter(row=>(!query || row._search.includes(query)) && (!country || row.country===country) && (!protocol || row.protocol===protocol) && (!outcome || (outcome==='working' ? working(row) : outcome==='failed' ? !working(row) && row.outcome!=='pending' : row.outcome===outcome))).sort(compare);
+}
+function render(printAll=false){
+  const selected=filtered(), pages=Math.max(1,Math.ceil(selected.length/pageSize)); page=Math.min(page,pages-1);
+  const visible=printAll ? selected : selected.slice(page*pageSize,(page+1)*pageSize), fragment=document.createDocumentFragment();
+  for(const row of visible){
+    const tr=document.createElement('tr'); tr.dataset.outcome=row.outcome;
+    let td=document.createElement('td'); td.append(text('div',`${row.city} · ${row.server}`,'server'),text('div',row.country,'secondary')); tr.append(td);
+    tr.append(text('td',protocols[row.protocol] || row.protocol),text('td',String(row.port),'number'),text('td',row._anti,'settings'));
+    td=document.createElement('td'); let tone=working(row)?row.outcome:row.outcome==='pending'?'pending':'failure';
+    td.append(text('span',report.labels[row.outcome] || row.outcome,`status ${tone}`)); tr.append(td);
+    for(const [key,unit] of [['latency_ms',' ms'],['loss_pct','%'],['connect_s',' s']])tr.append(text('td',number(row[key],unit),'number'));
+    tr.append(text('td',row.outcome==='pending'?'—':`${row.https_ok??0}/${row.https_total??2}`,'number'));
+    td=document.createElement('td'); const details=document.createElement('details'), list=document.createElement('dl');
+    details.append(text('summary','View'));
+    const values=[['Measurement',row.detail || (row.outcome==='pending'?'Not tested':'—')],['Settings',row.settings_verification || 'Not managed'],['Trial',String(row.trial??1)],['Jitter',number(row.jitter_ms,' ms')],['Download',number(row.download_mbps,' Mbps')],['Recorded',row.timestamp ? new Date(row.timestamp).toLocaleString() : '—']];
+    for(const [key,value] of values)list.append(text('dt',key),text('dd',value)); details.append(list); td.append(details); tr.append(td); fragment.append(tr);
+  }
+  $('rows').replaceChildren(fragment); $('empty').hidden=selected.length!==0;
+  $('result-count').textContent=selected.length ? `${page*pageSize+1}–${Math.min((page+1)*pageSize,selected.length)} of ${number(selected.length)} results` : '0 results';
+  $('page').textContent=`${page+1} / ${pages}`; $('previous').disabled=page===0; $('next').disabled=page>=pages-1; $('csv').disabled=selected.length===0;
+}
+for(const id of ['search','country','protocol','outcome'])$(id).addEventListener(id==='search'?'input':'change',()=>{page=0;render();});
+for(const button of document.querySelectorAll('[data-sort]'))button.addEventListener('click',()=>{
+  const key=button.dataset.sort; sortDirection=sortKey===key ? -sortDirection:1; sortKey=key; page=0;
+  for(const th of document.querySelectorAll('th[aria-sort]'))th.removeAttribute('aria-sort');
+  button.parentElement.setAttribute('aria-sort',sortDirection===1?'ascending':'descending'); render();
+});
+$('previous').addEventListener('click',()=>{page--;render();}); $('next').addEventListener('click',()=>{page++;render();});
+$('theme').addEventListener('click',()=>{const light=document.documentElement.dataset.theme!=='light';document.documentElement.dataset.theme=light?'light':'dark';$('theme').textContent=light?'Dark theme':'Light theme';});
+$('print').addEventListener('click',()=>window.print()); window.addEventListener('beforeprint',()=>render(true)); window.addEventListener('afterprint',()=>render());
+$('csv').addEventListener('click',()=>{
+  const selected=filtered().map(({_anti,_search,...row})=>row), columns=[...new Set(selected.flatMap(row=>Object.keys(row)))];
+  const cell=value=>{ if(value==null)value='';if(typeof value==='object')value=JSON.stringify(value);value=String(value);if(/^[\s]*[=+\-@]/u.test(value))value="'"+value;return '"'+value.replaceAll('"','""')+'"';};
+  const content='\ufeff'+[columns.map(cell).join(','),...selected.map(row=>columns.map(key=>cell(row[key])).join(','))].join('\r\n');
+  const url=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'})), link=document.createElement('a'); link.href=url;link.download=`WindscribeLab-${report.session.slice(0,8)}-filtered.csv`;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+render();
+</script>
+</body>
+</html>

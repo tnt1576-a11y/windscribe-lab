@@ -1,0 +1,1606 @@
+{
+  "source": "https://assets.windscribe.com/serverlist/mob-v2/1/0",
+  "retrieved": "2026-10-24",
+  "locations": [
+    {
+      "id": "86",
+      "country": "US Central",
+      "code": "US",
+      "city": "Dallas",
+      "nickname": "Ranch",
+      "pro": true
+    },
+    {
+      "id": "109",
+      "country": "US Central",
+      "code": "US",
+      "city": "Atlanta",
+      "nickname": "Magic City",
+      "pro": true
+    },
+    {
+      "id": "145",
+      "country": "US Central",
+      "code": "US",
+      "city": "Denver",
+      "nickname": "Mile High",
+      "pro": true
+    },
+    {
+      "id": "156",
+      "country": "US Central",
+      "code": "US",
+      "city": "Atlanta",
+      "nickname": "Peachtree",
+      "pro": true
+    },
+    {
+      "id": "192",
+      "country": "US Central",
+      "code": "US",
+      "city": "Dallas",
+      "nickname": "BBQ",
+      "pro": true
+    },
+    {
+      "id": "331",
+      "country": "US Central",
+      "code": "US",
+      "city": "Atlanta",
+      "nickname": "Piedmont",
+      "pro": true
+    },
+    {
+      "id": "371",
+      "country": "US Central",
+      "code": "US",
+      "city": "Kansas City",
+      "nickname": "Glinda",
+      "pro": true
+    },
+    {
+      "id": "414",
+      "country": "US Central",
+      "code": "US",
+      "city": "Dallas",
+      "nickname": "Grassy Knoll",
+      "pro": true
+    },
+    {
+      "id": "424",
+      "country": "US Central",
+      "code": "US",
+      "city": "Houston",
+      "nickname": "Space City",
+      "pro": true
+    },
+    {
+      "id": "444",
+      "country": "US Central",
+      "code": "US",
+      "city": "Kansas City",
+      "nickname": "Barbecue",
+      "pro": true
+    },
+    {
+      "id": "452",
+      "country": "US Central",
+      "code": "US",
+      "city": "Denver",
+      "nickname": "Nuggets",
+      "pro": true
+    },
+    {
+      "id": "63",
+      "country": "US East",
+      "code": "US",
+      "city": "Chicago",
+      "nickname": "Cub",
+      "pro": true
+    },
+    {
+      "id": "106",
+      "country": "US East",
+      "code": "US",
+      "city": "New York",
+      "nickname": "Empire",
+      "pro": true
+    },
+    {
+      "id": "140",
+      "country": "US East",
+      "code": "US",
+      "city": "Miami",
+      "nickname": "Vice",
+      "pro": true
+    },
+    {
+      "id": "146",
+      "country": "US East",
+      "code": "US",
+      "city": "Cleveland",
+      "nickname": "King James",
+      "pro": true
+    },
+    {
+      "id": "181",
+      "country": "US East",
+      "code": "US",
+      "city": "New Jersey",
+      "nickname": "Situation",
+      "pro": true
+    },
+    {
+      "id": "206",
+      "country": "US East",
+      "code": "US",
+      "city": "Miami",
+      "nickname": "Snow",
+      "pro": true
+    },
+    {
+      "id": "281",
+      "country": "US East",
+      "code": "US",
+      "city": "Buffalo",
+      "nickname": "Bill",
+      "pro": true
+    },
+    {
+      "id": "298",
+      "country": "US East",
+      "code": "US",
+      "city": "Boston",
+      "nickname": "MIT",
+      "pro": true
+    },
+    {
+      "id": "303",
+      "country": "US East",
+      "code": "US",
+      "city": "Charlotte",
+      "nickname": "Moonshine Run",
+      "pro": true
+    },
+    {
+      "id": "323",
+      "country": "US East",
+      "code": "US",
+      "city": "Chicago",
+      "nickname": "Wrigley",
+      "pro": true
+    },
+    {
+      "id": "324",
+      "country": "US East",
+      "code": "US",
+      "city": "Washington DC",
+      "nickname": "Trade War",
+      "pro": true
+    },
+    {
+      "id": "326",
+      "country": "US East",
+      "code": "US",
+      "city": "Miami",
+      "nickname": "Florida Man",
+      "pro": true
+    },
+    {
+      "id": "330",
+      "country": "US East",
+      "code": "US",
+      "city": "New York",
+      "nickname": "Insomnia",
+      "pro": true
+    },
+    {
+      "id": "348",
+      "country": "US East",
+      "code": "US",
+      "city": "Philadelphia",
+      "nickname": "Fresh Prince",
+      "pro": true
+    },
+    {
+      "id": "349",
+      "country": "US East",
+      "code": "US",
+      "city": "Tampa",
+      "nickname": "Cuban Sandwich",
+      "pro": true
+    },
+    {
+      "id": "368",
+      "country": "US East",
+      "code": "US",
+      "city": "Detroit",
+      "nickname": "Coney Dog",
+      "pro": true
+    },
+    {
+      "id": "384",
+      "country": "US East",
+      "code": "US",
+      "city": "New York",
+      "nickname": "Inside Job",
+      "pro": true
+    },
+    {
+      "id": "388",
+      "country": "US East",
+      "code": "US",
+      "city": "South Bend",
+      "nickname": "Hawkins",
+      "pro": true
+    },
+    {
+      "id": "408",
+      "country": "US East",
+      "code": "US",
+      "city": "Boston",
+      "nickname": "Harvard",
+      "pro": true
+    },
+    {
+      "id": "413",
+      "country": "US East",
+      "code": "US",
+      "city": "Philadelphia",
+      "nickname": "Sunny",
+      "pro": true
+    },
+    {
+      "id": "459",
+      "country": "US East",
+      "code": "US",
+      "city": "Ashburn",
+      "nickname": "Cloud City",
+      "pro": true
+    },
+    {
+      "id": "460",
+      "country": "US East",
+      "code": "US",
+      "city": "Raleigh",
+      "nickname": "Belt Buckle",
+      "pro": true
+    },
+    {
+      "id": "468",
+      "country": "US East",
+      "code": "US",
+      "city": "Tampa",
+      "nickname": "Big Guava",
+      "pro": true
+    },
+    {
+      "id": "472",
+      "country": "US East",
+      "code": "US",
+      "city": "Chicago",
+      "nickname": "Bulls",
+      "pro": true
+    },
+    {
+      "id": "479",
+      "country": "US East",
+      "code": "US",
+      "city": "Chicago",
+      "nickname": "Green Mill",
+      "pro": true
+    },
+    {
+      "id": "480",
+      "country": "US East",
+      "code": "US",
+      "city": "New York",
+      "nickname": "Big Apple",
+      "pro": true
+    },
+    {
+      "id": "481",
+      "country": "US East",
+      "code": "US",
+      "city": "Ashburn",
+      "nickname": "Bles Park",
+      "pro": true
+    },
+    {
+      "id": "107",
+      "country": "US West",
+      "code": "US",
+      "city": "Los Angeles",
+      "nickname": "Dogg",
+      "pro": true
+    },
+    {
+      "id": "182",
+      "country": "US West",
+      "code": "US",
+      "city": "Seattle",
+      "nickname": "Hendrix",
+      "pro": true
+    },
+    {
+      "id": "183",
+      "country": "US West",
+      "code": "US",
+      "city": "Las Vegas",
+      "nickname": "Casino",
+      "pro": true
+    },
+    {
+      "id": "221",
+      "country": "US West",
+      "code": "US",
+      "city": "Seattle",
+      "nickname": "Cornell",
+      "pro": true
+    },
+    {
+      "id": "290",
+      "country": "US West",
+      "code": "US",
+      "city": "Seattle",
+      "nickname": "Cobain",
+      "pro": true
+    },
+    {
+      "id": "302",
+      "country": "US West",
+      "code": "US",
+      "city": "Bend",
+      "nickname": "Oregon Trail",
+      "pro": true
+    },
+    {
+      "id": "310",
+      "country": "US West",
+      "code": "US",
+      "city": "Los Angeles",
+      "nickname": "Lamar",
+      "pro": true
+    },
+    {
+      "id": "321",
+      "country": "US West",
+      "code": "US",
+      "city": "Los Angeles",
+      "nickname": "Cube",
+      "pro": true
+    },
+    {
+      "id": "325",
+      "country": "US West",
+      "code": "US",
+      "city": "Phoenix",
+      "nickname": "Copper Cactus",
+      "pro": true
+    },
+    {
+      "id": "329",
+      "country": "US West",
+      "code": "US",
+      "city": "San Francisco",
+      "nickname": "Sanitation",
+      "pro": true
+    },
+    {
+      "id": "333",
+      "country": "US West",
+      "code": "US",
+      "city": "Santa Clara",
+      "nickname": "Vaporware",
+      "pro": true
+    },
+    {
+      "id": "337",
+      "country": "US West",
+      "code": "US",
+      "city": "San Jose",
+      "nickname": "Santana",
+      "pro": true
+    },
+    {
+      "id": "442",
+      "country": "US West",
+      "code": "US",
+      "city": "Salt Lake City",
+      "nickname": "Missionary",
+      "pro": true
+    },
+    {
+      "id": "445",
+      "country": "US West",
+      "code": "US",
+      "city": "Honolulu",
+      "nickname": "Coconut Wireless",
+      "pro": true
+    },
+    {
+      "id": "72",
+      "country": "Canada East",
+      "code": "CA",
+      "city": "Toronto",
+      "nickname": "The 6",
+      "pro": true
+    },
+    {
+      "id": "197",
+      "country": "Canada East",
+      "code": "CA",
+      "city": "Toronto",
+      "nickname": "Comfort Zone",
+      "pro": true
+    },
+    {
+      "id": "316",
+      "country": "Canada East",
+      "code": "CA",
+      "city": "Montreal",
+      "nickname": "Bagel Poutine",
+      "pro": true
+    },
+    {
+      "id": "359",
+      "country": "Canada East",
+      "code": "CA",
+      "city": "Montreal",
+      "nickname": "Expo 67",
+      "pro": true
+    },
+    {
+      "id": "386",
+      "country": "Canada East",
+      "code": "CA",
+      "city": "Halifax",
+      "nickname": "Crosby",
+      "pro": true
+    },
+    {
+      "id": "124",
+      "country": "Canada West",
+      "code": "CA",
+      "city": "Vancouver",
+      "nickname": "Stanley",
+      "pro": true
+    },
+    {
+      "id": "311",
+      "country": "Canada West",
+      "code": "CA",
+      "city": "Vancouver",
+      "nickname": "Vansterdam",
+      "pro": true
+    },
+    {
+      "id": "439",
+      "country": "Canada West",
+      "code": "CA",
+      "city": "Calgary",
+      "nickname": "Chinook",
+      "pro": true
+    },
+    {
+      "id": "465",
+      "country": "Canada West",
+      "code": "CA",
+      "city": "Winnipeg",
+      "nickname": "The Forks",
+      "pro": true
+    },
+    {
+      "id": "470",
+      "country": "Canada West",
+      "code": "CA",
+      "city": "Calgary",
+      "nickname": "Saddledome",
+      "pro": true
+    },
+    {
+      "id": "87",
+      "country": "Austria",
+      "code": "AT",
+      "city": "Vienna",
+      "nickname": "Hofburg",
+      "pro": true
+    },
+    {
+      "id": "308",
+      "country": "Austria",
+      "code": "AT",
+      "city": "Vienna",
+      "nickname": "Couch of Freud",
+      "pro": true
+    },
+    {
+      "id": "99",
+      "country": "Belgium",
+      "code": "BE",
+      "city": "Brussels",
+      "nickname": "Guildhouse",
+      "pro": true
+    },
+    {
+      "id": "431",
+      "country": "Belgium",
+      "code": "BE",
+      "city": "Brussels",
+      "nickname": "Funfrites",
+      "pro": true
+    },
+    {
+      "id": "100",
+      "country": "Bulgaria",
+      "code": "BG",
+      "city": "Sofia",
+      "nickname": "Nevski",
+      "pro": true
+    },
+    {
+      "id": "437",
+      "country": "Bulgaria",
+      "code": "BG",
+      "city": "Sofia",
+      "nickname": "Vitoshka",
+      "pro": true
+    },
+    {
+      "id": "252",
+      "country": "Croatia",
+      "code": "HR",
+      "city": "Zagreb",
+      "nickname": "Tkalciceva",
+      "pro": true
+    },
+    {
+      "id": "320",
+      "country": "Cyprus",
+      "code": "CY",
+      "city": "Nicosia",
+      "nickname": "Blue Lagoon",
+      "pro": true
+    },
+    {
+      "id": "432",
+      "country": "Cyprus",
+      "code": "CY",
+      "city": "Limassol",
+      "nickname": "Amathusia",
+      "pro": true
+    },
+    {
+      "id": "88",
+      "country": "Czech Republic",
+      "code": "CZ",
+      "city": "Prague",
+      "nickname": "Staromak",
+      "pro": true
+    },
+    {
+      "id": "338",
+      "country": "Czech Republic",
+      "code": "CZ",
+      "city": "Prague",
+      "nickname": "Vltava",
+      "pro": true
+    },
+    {
+      "id": "153",
+      "country": "Denmark",
+      "code": "DK",
+      "city": "Copenhagen",
+      "nickname": "LEGO",
+      "pro": true
+    },
+    {
+      "id": "429",
+      "country": "Denmark",
+      "code": "DK",
+      "city": "Copenhagen",
+      "nickname": "Hyggenhagen",
+      "pro": true
+    },
+    {
+      "id": "299",
+      "country": "Estonia",
+      "code": "EE",
+      "city": "Tallinn",
+      "nickname": "Digital Bromad",
+      "pro": true
+    },
+    {
+      "id": "98",
+      "country": "Finland",
+      "code": "FI",
+      "city": "Helsinki",
+      "nickname": "Sauna",
+      "pro": true
+    },
+    {
+      "id": "186",
+      "country": "Finland",
+      "code": "FI",
+      "city": "Helsinki",
+      "nickname": "Tram",
+      "pro": true
+    },
+    {
+      "id": "103",
+      "country": "France",
+      "code": "FR",
+      "city": "Paris",
+      "nickname": "Seine",
+      "pro": true
+    },
+    {
+      "id": "342",
+      "country": "France",
+      "code": "FR",
+      "city": "Paris",
+      "nickname": "Jardin",
+      "pro": true
+    },
+    {
+      "id": "411",
+      "country": "France",
+      "code": "FR",
+      "city": "Marseille",
+      "nickname": "La Marseillaise",
+      "pro": true
+    },
+    {
+      "id": "462",
+      "country": "France",
+      "code": "FR",
+      "city": "Bordeaux",
+      "nickname": "Cite du Vin",
+      "pro": true
+    },
+    {
+      "id": "113",
+      "country": "Germany",
+      "code": "DE",
+      "city": "Frankfurt",
+      "nickname": "Sausage Party",
+      "pro": true
+    },
+    {
+      "id": "228",
+      "country": "Germany",
+      "code": "DE",
+      "city": "Frankfurt",
+      "nickname": "Wurstchen",
+      "pro": true
+    },
+    {
+      "id": "449",
+      "country": "Germany",
+      "code": "DE",
+      "city": "Berlin",
+      "nickname": "Berghain",
+      "pro": true
+    },
+    {
+      "id": "247",
+      "country": "Greece",
+      "code": "GR",
+      "city": "Athens",
+      "nickname": "Odeon",
+      "pro": true
+    },
+    {
+      "id": "90",
+      "country": "Hungary",
+      "code": "HU",
+      "city": "Budapest",
+      "nickname": "Danube",
+      "pro": true
+    },
+    {
+      "id": "438",
+      "country": "Hungary",
+      "code": "HU",
+      "city": "Budapest",
+      "nickname": "Goulash",
+      "pro": true
+    },
+    {
+      "id": "121",
+      "country": "Iceland",
+      "code": "IS",
+      "city": "Reykjavik",
+      "nickname": "Fuzzy Pony",
+      "pro": true
+    },
+    {
+      "id": "344",
+      "country": "Iceland",
+      "code": "IS",
+      "city": "Reykjavik",
+      "nickname": "Reyka",
+      "pro": true
+    },
+    {
+      "id": "370",
+      "country": "Ireland",
+      "code": "IE",
+      "city": "Dublin",
+      "nickname": "Dullahan",
+      "pro": true
+    },
+    {
+      "id": "400",
+      "country": "Ireland",
+      "code": "IE",
+      "city": "Dublin",
+      "nickname": "Grafton",
+      "pro": true
+    },
+    {
+      "id": "218",
+      "country": "Israel",
+      "code": "IL",
+      "city": "Ashdod",
+      "nickname": "Yam Park",
+      "pro": true
+    },
+    {
+      "id": "475",
+      "country": "Israel",
+      "code": "IL",
+      "city": "Tel Aviv",
+      "nickname": "Jaffa",
+      "pro": true
+    },
+    {
+      "id": "110",
+      "country": "Italy",
+      "code": "IT",
+      "city": "Milan",
+      "nickname": "Galleria",
+      "pro": true
+    },
+    {
+      "id": "318",
+      "country": "Italy",
+      "code": "IT",
+      "city": "Milan",
+      "nickname": "Duomo",
+      "pro": true
+    },
+    {
+      "id": "428",
+      "country": "Italy",
+      "code": "IT",
+      "city": "Palermo",
+      "nickname": "Sicilicious",
+      "pro": true
+    },
+    {
+      "id": "254",
+      "country": "Latvia",
+      "code": "LV",
+      "city": "Riga",
+      "nickname": "Daugava",
+      "pro": true
+    },
+    {
+      "id": "398",
+      "country": "Latvia",
+      "code": "LV",
+      "city": "Riga",
+      "nickname": "Saeima",
+      "pro": true
+    },
+    {
+      "id": "378",
+      "country": "Lithuania",
+      "code": "LT",
+      "city": "Vilnius",
+      "nickname": "Neris",
+      "pro": true
+    },
+    {
+      "id": "152",
+      "country": "Luxembourg",
+      "code": "LU",
+      "city": "Luxembourg",
+      "nickname": "Tax Shelter",
+      "pro": true
+    },
+    {
+      "id": "210",
+      "country": "Moldova",
+      "code": "MD",
+      "city": "Chisinau",
+      "nickname": "Dendrarium",
+      "pro": true
+    },
+    {
+      "id": "120",
+      "country": "Netherlands",
+      "code": "NL",
+      "city": "Amsterdam",
+      "nickname": "Stroopwafel",
+      "pro": true
+    },
+    {
+      "id": "193",
+      "country": "Netherlands",
+      "code": "NL",
+      "city": "Amsterdam",
+      "nickname": "Tulip",
+      "pro": true
+    },
+    {
+      "id": "466",
+      "country": "Netherlands",
+      "code": "NL",
+      "city": "Amsterdam",
+      "nickname": "Stolen Cheese",
+      "pro": true
+    },
+    {
+      "id": "339",
+      "country": "North Macedonia",
+      "code": "MK",
+      "city": "Skopje",
+      "nickname": "Vardar",
+      "pro": true
+    },
+    {
+      "id": "477",
+      "country": "North Macedonia",
+      "code": "MK",
+      "city": "Skopje",
+      "nickname": "Ajvar",
+      "pro": true
+    },
+    {
+      "id": "169",
+      "country": "Norway",
+      "code": "NO",
+      "city": "Oslo",
+      "nickname": "Fjord",
+      "pro": true
+    },
+    {
+      "id": "433",
+      "country": "Norway",
+      "code": "NO",
+      "city": "Oslo",
+      "nickname": "Rakfisk",
+      "pro": true
+    },
+    {
+      "id": "85",
+      "country": "Poland",
+      "code": "PL",
+      "city": "Gdansk",
+      "nickname": "Motlawa",
+      "pro": true
+    },
+    {
+      "id": "237",
+      "country": "Poland",
+      "code": "PL",
+      "city": "Warsaw",
+      "nickname": "Curie",
+      "pro": true
+    },
+    {
+      "id": "309",
+      "country": "Poland",
+      "code": "PL",
+      "city": "Warsaw",
+      "nickname": "Vistula",
+      "pro": true
+    },
+    {
+      "id": "249",
+      "country": "Portugal",
+      "code": "PT",
+      "city": "Lisbon",
+      "nickname": "Bairro",
+      "pro": true
+    },
+    {
+      "id": "105",
+      "country": "Romania",
+      "code": "RO",
+      "city": "Bucharest",
+      "nickname": "No Vampires",
+      "pro": true
+    },
+    {
+      "id": "430",
+      "country": "Romania",
+      "code": "RO",
+      "city": "Bucharest",
+      "nickname": "Noctropolis",
+      "pro": true
+    },
+    {
+      "id": "213",
+      "country": "Slovakia",
+      "code": "SK",
+      "city": "Bratislava",
+      "nickname": "Devin Castle",
+      "pro": true
+    },
+    {
+      "id": "115",
+      "country": "Spain",
+      "code": "ES",
+      "city": "Madrid",
+      "nickname": "Prado",
+      "pro": true
+    },
+    {
+      "id": "239",
+      "country": "Spain",
+      "code": "ES",
+      "city": "Barcelona",
+      "nickname": "Batllo",
+      "pro": true
+    },
+    {
+      "id": "427",
+      "country": "Spain",
+      "code": "ES",
+      "city": "Madrid",
+      "nickname": "Plaza Mayor",
+      "pro": true
+    },
+    {
+      "id": "30",
+      "country": "Sweden",
+      "code": "SE",
+      "city": "Stockholm",
+      "nickname": "Syndrome",
+      "pro": true
+    },
+    {
+      "id": "159",
+      "country": "Sweden",
+      "code": "SE",
+      "city": "Stockholm",
+      "nickname": "Ikea",
+      "pro": true
+    },
+    {
+      "id": "234",
+      "country": "Sweden",
+      "code": "SE",
+      "city": "Stockholm",
+      "nickname": "Djurgarden",
+      "pro": true
+    },
+    {
+      "id": "476",
+      "country": "Sweden",
+      "code": "SE",
+      "city": "Stockholm",
+      "nickname": "Fika",
+      "pro": true
+    },
+    {
+      "id": "112",
+      "country": "Switzerland",
+      "code": "CH",
+      "city": "Zurich",
+      "nickname": "Alphorn",
+      "pro": true
+    },
+    {
+      "id": "264",
+      "country": "Switzerland",
+      "code": "CH",
+      "city": "Zurich",
+      "nickname": "Altstadt",
+      "pro": true
+    },
+    {
+      "id": "317",
+      "country": "Switzerland",
+      "code": "CH",
+      "city": "Zurich",
+      "nickname": "Lindenhof",
+      "pro": true
+    },
+    {
+      "id": "126",
+      "country": "United Kingdom",
+      "code": "GB",
+      "city": "Manchester",
+      "nickname": "United",
+      "pro": true
+    },
+    {
+      "id": "171",
+      "country": "United Kingdom",
+      "code": "GB",
+      "city": "London",
+      "nickname": "Crumpets",
+      "pro": true
+    },
+    {
+      "id": "335",
+      "country": "United Kingdom",
+      "code": "GB",
+      "city": "London",
+      "nickname": "Biscuits",
+      "pro": true
+    },
+    {
+      "id": "341",
+      "country": "United Kingdom",
+      "code": "GB",
+      "city": "London",
+      "nickname": "1984",
+      "pro": true
+    },
+    {
+      "id": "369",
+      "country": "United Kingdom",
+      "code": "GB",
+      "city": "Edinburgh",
+      "nickname": "Keeper Willie",
+      "pro": true
+    },
+    {
+      "id": "450",
+      "country": "United Kingdom",
+      "code": "GB",
+      "city": "Shamchester",
+      "nickname": "City",
+      "pro": true
+    },
+    {
+      "id": "283",
+      "country": "Albania",
+      "code": "AL",
+      "city": "Tirana",
+      "nickname": "Besa",
+      "pro": true
+    },
+    {
+      "id": "423",
+      "country": "Albania",
+      "code": "AL",
+      "city": "Tirana",
+      "nickname": "Fergese",
+      "pro": true
+    },
+    {
+      "id": "286",
+      "country": "Bosnia",
+      "code": "BA",
+      "city": "Sarajevo",
+      "nickname": "Burek",
+      "pro": true
+    },
+    {
+      "id": "410",
+      "country": "Bosnia",
+      "code": "BA",
+      "city": "Novi Travnik",
+      "nickname": "Pisanica",
+      "pro": true
+    },
+    {
+      "id": "387",
+      "country": "Georgia",
+      "code": "GE",
+      "city": "Tbilisi",
+      "nickname": "Ghvino",
+      "pro": true
+    },
+    {
+      "id": "372",
+      "country": "India",
+      "code": "IN",
+      "city": "Mumbai",
+      "nickname": "Old Spice",
+      "pro": true
+    },
+    {
+      "id": "417",
+      "country": "India",
+      "code": "IN",
+      "city": "New Delhi",
+      "nickname": "Chole Bhature",
+      "pro": true
+    },
+    {
+      "id": "457",
+      "country": "India",
+      "code": "IN",
+      "city": "Fake Mumbai",
+      "nickname": "Mayanagri",
+      "pro": true
+    },
+    {
+      "id": "474",
+      "country": "Kenya",
+      "code": "KE",
+      "city": "Nairobi",
+      "nickname": "Matatu",
+      "pro": true
+    },
+    {
+      "id": "435",
+      "country": "Nigeria",
+      "code": "NG",
+      "city": "Lagos",
+      "nickname": "Lekki",
+      "pro": true
+    },
+    {
+      "id": "265",
+      "country": "Russia",
+      "code": "RU",
+      "city": "Fake St Petersburg",
+      "nickname": "Hermitage",
+      "pro": true
+    },
+    {
+      "id": "346",
+      "country": "Russia",
+      "code": "RU",
+      "city": "Moscow",
+      "nickname": "Goodbye Lenin",
+      "pro": true
+    },
+    {
+      "id": "288",
+      "country": "Serbia",
+      "code": "RS",
+      "city": "Belgrade",
+      "nickname": "Rakia",
+      "pro": true
+    },
+    {
+      "id": "441",
+      "country": "Slovenia",
+      "code": "SI",
+      "city": "Ljubljana",
+      "nickname": "Melania",
+      "pro": true
+    },
+    {
+      "id": "164",
+      "country": "South Africa",
+      "code": "ZA",
+      "city": "Johannesburg",
+      "nickname": "District 69",
+      "pro": true
+    },
+    {
+      "id": "232",
+      "country": "South Africa",
+      "code": "ZA",
+      "city": "Johannesburg",
+      "nickname": "Lindfield",
+      "pro": true
+    },
+    {
+      "id": "409",
+      "country": "South Africa",
+      "code": "ZA",
+      "city": "Johannesburg",
+      "nickname": "Springbok",
+      "pro": true
+    },
+    {
+      "id": "405",
+      "country": "Turkey",
+      "code": "TR",
+      "city": "Istanbul",
+      "nickname": "Lygos",
+      "pro": true
+    },
+    {
+      "id": "383",
+      "country": "Ukraine",
+      "code": "UA",
+      "city": "Kyiv",
+      "nickname": "Slava",
+      "pro": true
+    },
+    {
+      "id": "223",
+      "country": "Australia",
+      "code": "AU",
+      "city": "Perth",
+      "nickname": "Kings Park",
+      "pro": true
+    },
+    {
+      "id": "224",
+      "country": "Australia",
+      "code": "AU",
+      "city": "Melbourne",
+      "nickname": "Yarra",
+      "pro": true
+    },
+    {
+      "id": "225",
+      "country": "Australia",
+      "code": "AU",
+      "city": "Brisbane",
+      "nickname": "Bad Koala",
+      "pro": true
+    },
+    {
+      "id": "226",
+      "country": "Australia",
+      "code": "AU",
+      "city": "Sydney",
+      "nickname": "Eshay",
+      "pro": true
+    },
+    {
+      "id": "243",
+      "country": "Australia",
+      "code": "AU",
+      "city": "Sydney",
+      "nickname": "Squidney",
+      "pro": true
+    },
+    {
+      "id": "319",
+      "country": "Australia",
+      "code": "AU",
+      "city": "Adelaide",
+      "nickname": "Oval",
+      "pro": true
+    },
+    {
+      "id": "354",
+      "country": "Australia",
+      "code": "AU",
+      "city": "Adelaide",
+      "nickname": "Lofty",
+      "pro": true
+    },
+    {
+      "id": "355",
+      "country": "Australia",
+      "code": "AU",
+      "city": "Perth",
+      "nickname": "Herdsman",
+      "pro": true
+    },
+    {
+      "id": "356",
+      "country": "Australia",
+      "code": "AU",
+      "city": "Melbourne",
+      "nickname": "Port Phillip",
+      "pro": true
+    },
+    {
+      "id": "357",
+      "country": "Australia",
+      "code": "AU",
+      "city": "Brisbane",
+      "nickname": "Good Koala",
+      "pro": true
+    },
+    {
+      "id": "251",
+      "country": "New Zealand",
+      "code": "NZ",
+      "city": "Auckland",
+      "nickname": "Parnell",
+      "pro": true
+    },
+    {
+      "id": "352",
+      "country": "New Zealand",
+      "code": "NZ",
+      "city": "Auckland",
+      "nickname": "Hauraki",
+      "pro": true
+    },
+    {
+      "id": "26",
+      "country": "Hong Kong",
+      "code": "HK",
+      "city": "Hong Kong",
+      "nickname": "Victoria",
+      "pro": true
+    },
+    {
+      "id": "189",
+      "country": "Hong Kong",
+      "code": "HK",
+      "city": "Hong Kong",
+      "nickname": "Phooey",
+      "pro": true
+    },
+    {
+      "id": "391",
+      "country": "Indonesia",
+      "code": "ID",
+      "city": "Jakarta",
+      "nickname": "Old Town",
+      "pro": true
+    },
+    {
+      "id": "416",
+      "country": "Indonesia",
+      "code": "ID",
+      "city": "Jakarta",
+      "nickname": "Ancol",
+      "pro": true
+    },
+    {
+      "id": "454",
+      "country": "Indonesia",
+      "code": "ID",
+      "city": "Surabaya",
+      "nickname": "Nasi Goreng",
+      "pro": true
+    },
+    {
+      "id": "464",
+      "country": "Indonesia",
+      "code": "ID",
+      "city": "Bali",
+      "nickname": "Pulau Dewata",
+      "pro": true
+    },
+    {
+      "id": "148",
+      "country": "Japan",
+      "code": "JP",
+      "city": "Tokyo",
+      "nickname": "Shinkansen",
+      "pro": true
+    },
+    {
+      "id": "287",
+      "country": "Japan",
+      "code": "JP",
+      "city": "Tokyo",
+      "nickname": "Wabi-sabi",
+      "pro": true
+    },
+    {
+      "id": "270",
+      "country": "Malaysia",
+      "code": "MY",
+      "city": "Kuala Lumpur",
+      "nickname": "Perdana",
+      "pro": true
+    },
+    {
+      "id": "365",
+      "country": "Philippines",
+      "code": "PH",
+      "city": "Manila",
+      "nickname": "Hotdog",
+      "pro": true
+    },
+    {
+      "id": "170",
+      "country": "Singapore",
+      "code": "SG",
+      "city": "Singapore",
+      "nickname": "Laksa",
+      "pro": true
+    },
+    {
+      "id": "235",
+      "country": "Singapore",
+      "code": "SG",
+      "city": "Singapore",
+      "nickname": "Marina Bay",
+      "pro": true
+    },
+    {
+      "id": "241",
+      "country": "Singapore",
+      "code": "SG",
+      "city": "Singapore",
+      "nickname": "SMRT",
+      "pro": true
+    },
+    {
+      "id": "362",
+      "country": "South Korea",
+      "code": "KR",
+      "city": "Seoul",
+      "nickname": "Hangang",
+      "pro": true
+    },
+    {
+      "id": "399",
+      "country": "South Korea",
+      "code": "KR",
+      "city": "Seoul",
+      "nickname": "Namsan",
+      "pro": true
+    },
+    {
+      "id": "483",
+      "country": "Taiwan",
+      "code": "TW",
+      "city": "Taipei",
+      "nickname": "Tianlong",
+      "pro": true
+    },
+    {
+      "id": "137",
+      "country": "Thailand",
+      "code": "TH",
+      "city": "Bangkok",
+      "nickname": "Wat Pho",
+      "pro": true
+    },
+    {
+      "id": "245",
+      "country": "Thailand",
+      "code": "TH",
+      "city": "Bangkok",
+      "nickname": "Happy Ending",
+      "pro": true
+    },
+    {
+      "id": "415",
+      "country": "Thailand",
+      "code": "TH",
+      "city": "Bangkok",
+      "nickname": "Lumphini",
+      "pro": true
+    },
+    {
+      "id": "304",
+      "country": "United Arab Emirates",
+      "code": "AE",
+      "city": "Dubai",
+      "nickname": "Khalifa",
+      "pro": true
+    },
+    {
+      "id": "122",
+      "country": "Vietnam",
+      "code": "VN",
+      "city": "Hanoi",
+      "nickname": "Red River",
+      "pro": true
+    },
+    {
+      "id": "458",
+      "country": "Vietnam",
+      "code": "VN",
+      "city": "Hanoi",
+      "nickname": "Train Street",
+      "pro": true
+    },
+    {
+      "id": "278",
+      "country": "Argentina",
+      "code": "AR",
+      "city": "Buenos Aires",
+      "nickname": "Tango",
+      "pro": true
+    },
+    {
+      "id": "451",
+      "country": "Argentina",
+      "code": "AR",
+      "city": "Buenos Aires",
+      "nickname": "Yerba Mate",
+      "pro": true
+    },
+    {
+      "id": "165",
+      "country": "Brazil",
+      "code": "BR",
+      "city": "Sao Paulo",
+      "nickname": "Pinacoteca",
+      "pro": true
+    },
+    {
+      "id": "231",
+      "country": "Brazil",
+      "code": "BR",
+      "city": "Sao Paulo",
+      "nickname": "Mercadao",
+      "pro": true
+    },
+    {
+      "id": "373",
+      "country": "Chile",
+      "code": "CL",
+      "city": "Santiago",
+      "nickname": "Cueca",
+      "pro": true
+    },
+    {
+      "id": "360",
+      "country": "Colombia",
+      "code": "CO",
+      "city": "Bogota",
+      "nickname": "Rololandia",
+      "pro": true
+    },
+    {
+      "id": "385",
+      "country": "Ecuador",
+      "code": "EC",
+      "city": "Quito",
+      "nickname": "Cuy",
+      "pro": true
+    },
+    {
+      "id": "448",
+      "country": "El Salvador",
+      "code": "SV",
+      "city": "San Salvador",
+      "nickname": "HODL",
+      "pro": true
+    },
+    {
+      "id": "446",
+      "country": "Guatemala",
+      "code": "GT",
+      "city": "Guatemala City",
+      "nickname": "Pepian",
+      "pro": true
+    },
+    {
+      "id": "420",
+      "country": "Mexico",
+      "code": "MX",
+      "city": "Queretaro",
+      "nickname": "Aqueduct",
+      "pro": true
+    },
+    {
+      "id": "358",
+      "country": "Panama",
+      "code": "PA",
+      "city": "Panama City",
+      "nickname": "Papers",
+      "pro": true
+    },
+    {
+      "id": "447",
+      "country": "Paraguay",
+      "code": "PY",
+      "city": "Asuncion",
+      "nickname": "Chipa",
+      "pro": true
+    },
+    {
+      "id": "367",
+      "country": "Peru",
+      "code": "PE",
+      "city": "Lima",
+      "nickname": "Amaru",
+      "pro": true
+    },
+    {
+      "id": "469",
+      "country": "Uruguay",
+      "code": "UY",
+      "city": "Montevideo",
+      "nickname": "Gaucho",
+      "pro": true
+    },
+    {
+      "id": "332",
+      "country": "Fake Antarctica",
+      "code": "AQ",
+      "city": "Troll",
+      "nickname": "Station",
+      "pro": true
+    }
+  ]
+}
