@@ -26,6 +26,8 @@ This is a portable Windows x64 app. No Python installation is needed. Keep the `
 
 The test strip shows the current server, stage and elapsed time. Completed results are saved automatically. Server access depends on your Windscribe account; some locations may be unavailable or require Pro.
 
+Enable **Options → Randomize test order** to shuffle the selected server, protocol and port tests for a new run. Every planned test remains in the queue, including requested repeats. Pause and resume keep the saved order and skip completed tests. Anti-censorship combinations stay grouped to avoid restarting Windscribe between every test. This option is off by default and is saved with your setup; it does not reorder existing History sessions.
+
 ## Anti-censorship settings
 
 ![Anti-censorship settings](docs/preview-anti-censorship.png)

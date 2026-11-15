@@ -426,6 +426,11 @@ class MainWindow(QMainWindow):
                                 ("Repeat each route", self.trials_input), ("Download sample", self.download_input)):
             form.addRow(caption, widget)
         ml.addLayout(form)
+        self.random_order = QCheckBox("Randomize test order")
+        self.random_order.setToolTip("Shuffle the selected server, protocol and port tests when starting a new run. "
+                                     "Resume keeps the saved order and skips completed tests. "
+                                     "Anti-censorship combinations stay grouped to limit restarts.")
+        ml.addWidget(self.random_order)
         self.stop_success = QCheckBox("Stop at first working route")
         self.stop_success.setToolTip("Leave the working route and its tested settings active.")
         self.restore_check = QCheckBox("Restore original connection")
@@ -782,7 +787,8 @@ class MainWindow(QMainWindow):
                          self.notes_input.toPlainText().strip(), self.timeout_input.value(), self.settle_input.value(),
                          self.pings_input.value(), self.trials_input.value(), [0, 1, 5, 10][self.download_input.currentIndex()],
                          self.stop_success.isChecked(), self.restore_check.isChecked(), settings,
-                         [asdict(profile) for profile in self.anti_profiles] if self.anti_enabled.isChecked() else [])
+                         [asdict(profile) for profile in self.anti_profiles] if self.anti_enabled.isChecked() else [],
+                         random_order=self.random_order.isChecked())
 
     def save_preferences(self, checked=False, quiet=False):
         try:
@@ -815,6 +821,7 @@ class MainWindow(QMainWindow):
         self.trials_input.setValue(cfg.trials)
         self.download_input.setCurrentIndex([0, 1, 5, 10].index(cfg.download_mb))
         self.stop_success.setChecked(cfg.stop_on_success)
+        self.random_order.setChecked(cfg.random_order)
         self.restore_check.setChecked(cfg.restore)
         try:
             self.anti_profiles = [AntiCensorship(**value) for value in data.get("anti_profiles", cfg.anti_profiles)]
@@ -1056,7 +1063,8 @@ class MainWindow(QMainWindow):
         try:
             cfg = self.read_config()
             cfg.validate()
-            plan = make_plan(self.selected_locations(), self.selected_protocols(), cfg.trials, cfg.anti_profiles)
+            plan = make_plan(self.selected_locations(), self.selected_protocols(), cfg.trials, cfg.anti_profiles,
+                             random_order=cfg.random_order)
             if not self.confirm_live(cfg, len(plan)):
                 return
             self.save_preferences(quiet=True)

@@ -77,6 +77,7 @@ class RunConfig:
         "routing": "As configured", "sni": "", "tls_padding": "As configured", "mtu": "Auto",
     })
     anti_profiles: list[dict] = field(default_factory=list)
+    random_order: bool = False
 
     def validate(self) -> None:
         if not 5 <= self.timeout <= 180 or not 0 <= self.settle <= 30:
@@ -98,7 +99,7 @@ class RunConfig:
 
 
 def make_plan(locations: list[Location], protocols: dict[str, list[int]], trials: int = 1,
-              anti_profiles: list[dict] | None = None) -> list[Route]:
+              anti_profiles: list[dict] | None = None, *, random_order: bool = False) -> list[Route]:
     if not locations or not any(protocols.values()):
         raise ValueError("Select at least one location and one protocol / port.")
     if not 1 <= trials <= 5:
@@ -121,7 +122,11 @@ def make_plan(locations: list[Location], protocols: dict[str, list[int]], trials
                         raise ValueError("Invalid port.")
                     for profile in profiles:
                         plan.append(Route(location, protocol, port, trial, profile))
-    # Group settings to avoid restarting Windscribe for every server/port.
+    # Shuffle once before saving the queue; resume uses its remaining entries.
+    if random_order:
+        random.shuffle(plan)
+    # Stable grouping retains random order within each settings combination
+    # without restarting Windscribe for every server/port.
     if anti_profiles:
         plan.sort(key=lambda route: profiles.index(route.anti_censorship))
     if len(plan) > 10000:
