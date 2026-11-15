@@ -373,7 +373,7 @@ def test_external_anti_setting_change_is_never_overwritten(tmp_path):
 def test_version_and_backup_failures_prevent_writes(tmp_path):
     ctrl, registry, host, client = controller(tmp_path)
     host.version = lambda: (2, 25, 0)
-    with pytest.raises(SettingsError, match="2.24.13 only"):
+    with pytest.raises(SettingsError, match="2.25.0 has not been verified"):
         ctrl.begin({})
     assert registry.writes == 0 and host.stops == 0
     host.version = lambda: (2, 24, 13)

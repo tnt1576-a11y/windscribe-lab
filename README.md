@@ -11,7 +11,7 @@ Windscribe Lab uses your installed official Windscribe app. Sign in through Wind
 ## Install
 
 1. Install the official [Windscribe desktop app](https://windscribe.com/download/) and sign in.
-2. Download `WindscribeLab-1.5.2-windows-x64.zip` from the [latest release](https://github.com/tnt1576-a11y/windscribe-lab/releases/latest).
+2. Download the Windows ZIP from the [latest release](https://github.com/tnt1576-a11y/windscribe-lab/releases/latest).
 3. Extract the entire ZIP and open `WindscribeLab.exe`.
 
 This is a portable Windows x64 app. No Python installation is needed. Keep the `_internal` folder beside the executable. The Windows executable is unsigned.
@@ -32,7 +32,9 @@ The test strip shows the current server, stage and elapsed time. Completed resul
 
 Open **Test setup → Anti-censorship** to compare **Protocol Tweaks**, **Amnezia configuration**, **Server Routing** and **Large TLS**. Enable **Test these settings** and add the combinations you want. **Use current** adds your current values. Check the test count before choosing **All combinations**.
 
-Automatic settings changes currently require **Windscribe 2.24.13**. Other versions can use server/protocol/port testing where their CLI is compatible, with settings configured manually in Windscribe.
+Automatic settings changes support **Windscribe 2.24.13 and 2.25.8**. Other versions can use server/protocol/port testing where their CLI is compatible, with settings configured manually in Windscribe. Unknown settings versions remain blocked until their serialization is verified.
+
+Version 1.5.3 recognizes both CLI status formats, including connection checks, network interference, and VPN/public IP labels. It also handles the usage instructions appended to the 2.25.8 Amnezia preset list. The settings adapter was checked against the [official 2.25.8 source](https://github.com/Windscribe/Desktop-App/tree/v2.25.8/src/client/client-common/types); its serialized settings format is unchanged from 2.24.13. Recovery backups record the installed version and can be restored between these two verified versions while preserving unrelated current preferences.
 
 Settings changes restart Windscribe. For continuous firewall protection during restarts, use **Always On** in Windscribe. Original connection restoration is enabled by default. Settings are restored on pause or completion unless a working route is deliberately kept connected.
 

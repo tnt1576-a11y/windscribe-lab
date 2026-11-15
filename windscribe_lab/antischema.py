@@ -1,6 +1,6 @@
 """Independent reader for Windscribe's public EngineSettings serialization.
 
-Schema: Desktop-App v2.24.13, enginesettings.cpp and nested types. No offset
+Schema: Desktop-App v2.24.13 / v2.25.8, enginesettings.cpp and nested types. No offset
 searches: consume and validate the stream, retaining untouched bytes verbatim.
 Decrypted settings can contain proxy/DNS credentials: never log or persist them.
 """

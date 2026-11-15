@@ -154,18 +154,22 @@ def parse_status(output: str) -> ClientStatus:
         if not sep:
             continue
         key, value = key.strip().lower(), value.strip()
-        if key == "login state":
+        if key in ("login state", "login"):
             result.logged_in = value.lower() == "logged in"
             result.login_state = value.lower()
-        elif key == "firewall state":
+        elif key in ("firewall state", "firewall"):
             result.firewall = value
-        elif key == "connect state":
-            result.pending = starred or value.startswith("*")
-            result.interference = "[network interference]" in value.lower()
+        elif key in ("connect state", "connection"):
+            result.pending = starred or value.startswith("*") or "(checking the connection)" in value.lower()
+            result.interference = any(marker in value.lower() for marker in (
+                "[network interference]", "(network interference detected)"))
             value = value.lstrip("* ")
-            state, _, location = value.partition(":")
+            clean = re.sub(r"\s*(?:\[Network interference\].*|\((?:checking the connection|network interference detected)\))$",
+                           "", value, flags=re.I).strip()
+            modern = re.fullmatch(r"(Connected|Connecting) to (.+)", clean, flags=re.I)
+            state, location = (modern[1], modern[2]) if modern else (clean.partition(":")[0], clean.partition(":")[2])
             result.state = state.strip().lower()
-            result.location = re.sub(r"\s*\[Network interference\].*", "", location, flags=re.I).strip()
+            result.location = location.strip()
             if result.state == "error" or result.state.startswith("disconnected due to"):
                 result.connection_error = value
                 result.state, result.location = "disconnected", ""
@@ -177,7 +181,15 @@ def parse_status(output: str) -> ClientStatus:
             result.vpn_ip = value
         elif key in ("public ip", "ip address"):
             result.public_ip = value
-    if result.state == "unknown" and result.login_state in ("logged out", "logging in"):
+        elif key == "ip":
+            match = re.fullmatch(r"(\S+)\s+\((VPN|public)\)", value, flags=re.I)
+            if match:
+                if match[2].lower() == "vpn":
+                    result.vpn_ip = match[1]
+                else:
+                    result.public_ip = match[1]
+    if result.state == "unknown" and (result.login_state in ("logged out", "logging in", "unknown error")
+                                      or result.login_state.startswith("error:")):
         result.state = "disconnected"
     return result
 

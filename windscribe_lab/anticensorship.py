@@ -13,9 +13,28 @@ import uuid
 
 from .antischema import AntiCensorship, EngineDocument, SettingsError, encrypt
 
-SUPPORTED_VERSION = (2, 24, 13)
+# These release tags share the EngineSettings and nested serialization schema.
+# Keep unknown versions blocked until their serialization has been reviewed.
+SUPPORTED_VERSIONS = frozenset(((2, 24, 13), (2, 25, 8)))
+SUPPORTED_VERSION_TEXT = "2.24.13 and 2.25.8"
+PRESET_HELP = ("To use a preset, open Preferences > Connection > Anti-Censorship Settings in the app,\n"
+               "set Protocol Tweaks to Enabled, and choose the preset under Amnezia Config.")
 REGISTRY_PATH = r"Software\Windscribe\Windscribe2"
 RECOVERY_FILE = "settings-recovery.dpapi"
+
+
+def parse_presets(output):
+    # 2.25.8 appends desktop instructions after a blank line. Remove only that
+    # known footer, never accept arbitrary diagnostic lines as preset names.
+    output = output.replace("\r\n", "\n").strip()
+    suffix = "\n\n" + PRESET_HELP
+    if output.endswith(suffix):
+        output = output[:-len(suffix)]
+    presets = [line.strip() for line in output.splitlines() if line.strip()]
+    if not presets or len(presets) > 128 or any(
+            len(p) > 256 or " - " not in p or any(ord(c) < 32 for c in p) for p in presets):
+        raise SettingsError("Cannot verify the installed client's Amnezia configurations.")
+    return list(dict.fromkeys(presets))
 
 
 def dpapi(data: bytes, decrypt=False) -> bytes:
@@ -225,16 +244,16 @@ class SettingsController:
         self.presets = []
 
     def inspect(self, load_presets=True):
-        if self.host.version() != SUPPORTED_VERSION:
-            raise SettingsError("Automatic anti-censorship control currently supports Windscribe 2.24.13 only. Other versions require a verified schema adapter.")
+        version = self.host.version()
+        if version not in SUPPORTED_VERSIONS:
+            installed = ".".join(map(str, version))
+            raise SettingsError(f"Windscribe {installed} has not been verified for automatic settings. "
+                                f"Supported versions: {SUPPORTED_VERSION_TEXT}. Configure settings manually for this version.")
         doc = EngineDocument.from_registry(self.registry.read())
         if not load_presets:
             return doc
         output = self.client.read_command("amneziawg", report=self.logger)
-        presets = [line.strip() for line in output.splitlines() if line.strip()]
-        if not presets or len(presets) > 128 or any(len(p) > 256 or " - " not in p for p in presets):
-            raise SettingsError("Cannot verify the installed client's Amnezia configurations.")
-        self.presets = presets
+        self.presets = parse_presets(output)
         return doc
 
     def _save(self):
@@ -256,7 +275,7 @@ class SettingsController:
             raise SettingsError("An original-settings recovery backup exists. Use Anti-censorship → Review settings recovery before a new managed run.")
         doc = self.inspect()
         doc.current.validate()  # Ensure the baseline can be restored before changing it.
-        self.journal = {"format": 1, "version": list(SUPPORTED_VERSION), "original_cipher": self.registry.read(),
+        self.journal = {"format": 1, "version": list(self.host.version()), "original_cipher": self.registry.read(),
                         "original": asdict(doc.current), "expected": asdict(doc.current),
                         "phase": "prepared", "connection": connection}
         # Do not save potentially changed settings from between the two reads.
@@ -275,7 +294,7 @@ class SettingsController:
                 self.journal = json.loads(self.protector(raw, decrypt=True))
             except (ValueError, UnicodeError) as exc:
                 raise SettingsError("Cannot read the protected recovery backup.") from exc
-            if self.journal.get("format") != 1 or self.journal.get("version") != list(SUPPORTED_VERSION):
+            if self.journal.get("format") != 1 or self.journal.get("version") not in [list(v) for v in SUPPORTED_VERSIONS]:
                 raise SettingsError("Unsupported recovery backup version.")
             backup = EngineDocument.from_registry(self.journal["original_cipher"])
             if asdict(backup.current) != self.journal["original"]:
@@ -387,7 +406,7 @@ class SettingsController:
     def restore(self, clear=True, reviewed_current=None):
         if not self._load():
             return None
-        if self.host.version() != SUPPORTED_VERSION:
+        if self.host.version() not in SUPPORTED_VERSIONS:
             raise SettingsError("The Windscribe version changed. Recovery backup retained; restore requires the supported version.")
         original = AntiCensorship(**self.journal["original"])
         self._replace(original, restoring=True, reviewed_current=reviewed_current)

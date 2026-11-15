@@ -1003,7 +1003,7 @@ class MainWindow(QMainWindow):
                 self.anti_preset.clear()
                 self.anti_preset.addItems(self.anti_presets)
                 self.anti_preset.setCurrentIndex(max(0, self.anti_preset.findText(selected)))
-                self.anti_status.setText(f"Windscribe 2.24.13 · {len(self.anti_presets)} Amnezia presets")
+                self.anti_status.setText(f"Windscribe {payload.get('anti_version', '')} · {len(self.anti_presets)} Amnezia presets")
                 self.anti_status.setToolTip("Current: " + AntiCensorship(**self.anti_current).label)
             else:
                 self.anti_status.setText("Automatic settings unavailable: " + payload.get("anti_error", "Check client compatibility."))
@@ -1369,7 +1369,7 @@ class MainWindow(QMainWindow):
             "Uses your installed official Windscribe client.\n"
             "Connectivity checks: Cloudflare, ipify, and 1.1.1.1. These services see the request IP.\n"
             "Optional download samples use Cloudflare.\n"
-            "Automatic anti-censorship settings require Windscribe 2.24.13.\n"
+            "Automatic anti-censorship settings support Windscribe 2.24.13 and 2.25.8.\n"
             f"Local data: {self.data_dir}\n\n"
             "See README and THIRD_PARTY.md for behavior, limitations, and licenses."
         )

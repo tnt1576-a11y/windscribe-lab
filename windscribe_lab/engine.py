@@ -163,6 +163,9 @@ class Client:
             code, out = run_process([self.path, *args], timeout, self.cancel)
         except ClientTimeout as exc:
             raise ClientTimeout(f"Windscribe command '{' '.join(args)}' did not respond within {timeout:g}s.") from exc
+        # Some startup failures are printed with exit 0 by the desktop CLI.
+        if "windscribe is already running in another user session" in out.casefold():
+            raise ClientError("Windscribe is running in another Windows session. Run Windscribe Lab in the same session as Windscribe.")
         if code:
             if any(message in out.casefold() for message in (
                 "app did not start in time", "ipc communication error", "could not start application",
@@ -370,7 +373,8 @@ class Discovery(QThread):
             try:
                 controller = SettingsController(client, Path("."))
                 document = controller.inspect()
-                payload.update(anti_current=asdict(document.current), anti_presets=controller.presets)
+                payload.update(anti_current=asdict(document.current), anti_presets=controller.presets,
+                               anti_version=".".join(map(str, controller.host.version())))
             except Exception as exc:
                 payload["anti_error"] = str(exc)
             self.ready.emit(payload)
